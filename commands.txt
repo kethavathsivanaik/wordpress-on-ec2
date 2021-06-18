@@ -1,0 +1,49 @@
+
+# To Install Webserver
+
+yum install httpd -y 
+
+# To install php
+
+amazon-linux-extras enable php7.2
+
+# To install dependencies
+
+yum install php-cli php-xml php-json php-mbstring php-process php-common php-fpm php-zip php-mysqlnd git -y
+
+# To Download Wordpress
+
+wget http://wordpress.org/latest.tar.gz
+
+# To extract wordpress tar file
+
+tar -xvf  latest.tar.gz
+
+# To Deploy wordpress on httpd
+
+cp -rf wordpress/*  /var/www/html/
+
+# To change the ownership of /var/www/html
+
+chown -R apache:apache /var/www/html/*
+
+# To Install mysql
+
+yum install mysql -y
+
+# To check database wordpress
+
+sql  -h <host>  -u admin  -p 
+
+# command to open wp-config with vim 
+
+vim   wp-config.php
+
+# To start and enable httpd
+
+systemctl enable httpd --now
+
+
+
+
+
